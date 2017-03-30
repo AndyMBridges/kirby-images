@@ -64,6 +64,39 @@
 			  return false;
 			});
 			
+			field.find(".grid-item .btn.edit").on("click", function () {
+			  var formfields = $(this).closest(".grid-item").find(".formfields");
+			  var formfieldsClone = $(this).closest(".grid-item").find(".formfields").clone();
+			  formfieldsClone.appendTo("body");
+			  formfields.show();
+			  var offsetY = formfields.offset().left;
+			  var offsetX = formfields.offset().top;
+			  var width =   formfields.outerWidth();
+			  var height =  formfields.outerHeight();
+			  formfields.hide();
+			  formfieldsClone.show();
+			  formfieldsClone.css("position", "fixed");
+			  formfieldsClone.css("left", offsetY);
+			  formfieldsClone.css("top", offsetX);
+			  formfieldsClone.css("bottom", "auto");
+			  formfieldsClone.css("right", "auto");
+			  formfieldsClone.css("width", width);
+			  formfieldsClone.css("height", height);
+			  formfieldsClone.css("zIndex", 10000000);
+			  
+			  setTimeout(function() {
+			    formfieldsClone.animate({
+			      left: "20%",
+			      height: "60%",
+			      width: "60%",
+			      top: "20%",
+			    }, 250, function() {
+			    });
+			  }, 250);
+			  
+			  return false;
+			});
+			
 			field.find(".images-add-button select").on("change", function(e) {
 		    select($(this).find("option:selected").text());
 		    $(this).val($(this).find("option:first").val());
@@ -139,9 +172,9 @@
 			      }
 			      else {
 			        var invisibleItem = field.find(".grid-item").first();
-			        invisibleItem.addClass("selected");
+			        invisibleItem.css("position", "absolute").addClass("selected");
 			        var height = invisibleItem.find("figure").height() - 4;
-			        invisibleItem.removeClass("selected");
+			        invisibleItem.removeClass("selected").css("position", "relative");
 			      }
 			      field.find(".add .inner").height(height);
 			      field.find(".add").addClass("over");

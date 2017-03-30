@@ -26,7 +26,6 @@
   margin-bottom: 0;
 }
 
-
 .field-with-images .images-add-button select {
   opacity: 0;
   position: absolute;
@@ -53,12 +52,50 @@
 .field-with-images .files .grid-item {
   display: none;
 }
+.field-with-images .files .grid-item figure {
+  position: relative;
+}
+
+  .formfields {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 100;
+    display: none;
+    border-radius: 3px;
+    box-shadow: rgba(0,0,0,.2) 0 2px 10px;
+    overflow: hidden;
+  }
+  .formfields .inner {
+    background: white;
+    padding: 1em;
+    box-sizing: border-box;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+  }
+  .formfields:before {
+    content: '';
+    display: block;
+    position: fixed;
+    background-color: rgba(30,30,30,.8);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  
+
 .field-with-images .files .grid-item.selected {
   display: inline-block;
 }
 .field-with-images .files .grid-item.over figure {
   outline: 2px solid black;
-  position: relative;
 }
 .field-with-images .files .grid-item.over figure a.file-preview, .field-with-images .files .grid-item.over figure figcaption.file-info, .field-with-images .files .grid-item.over figure nav.file-options {
   opacity: .25;
