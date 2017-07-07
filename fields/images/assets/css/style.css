@@ -17,11 +17,12 @@
     display: none; }
 
 .field-with-images .imagesgrid .imagesgrid-inner {
-  display: -ms-grid;
+  display: block;
   display: grid;
   grid-gap: 0 1.5em;
   -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  overflow: hidden; }
 
 .field-with-images .imagesgrid .images-item {
   display: none;
@@ -57,6 +58,7 @@
       border-right: 1px solid #ddd; }
   .field-with-images .imagesgrid .images-item.over figure {
     outline: 2px solid black;
+    outline-offset: -2px;
     position: relative; }
     .field-with-images .imagesgrid .images-item.over figure .images-preview, .field-with-images .imagesgrid .images-item.over figure .images-info, .field-with-images .imagesgrid .images-item.over figure .images-options {
       opacity: .25; }
